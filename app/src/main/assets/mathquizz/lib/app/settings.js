@@ -1,0 +1,26 @@
+"use strict";
+let settings = {'numeros': ['./img/gui/numbers/cero.png',
+                            './img/gui/numbers/uno.png',
+                            './img/gui/numbers/dos.png',
+                            './img/gui/numbers/tres.png',
+                            './img/gui/numbers/cuatro.png',
+                            './img/gui/numbers/cinco.png',
+                            './img/gui/numbers/seis.png',
+                            './img/gui/numbers/siete.png',
+                            './img/gui/numbers/ocho.png',
+                            './img/gui/numbers/nueve.png',
+                            './img/gui/numbers/vacio.png'],
+
+                'buttonsPath': './img/gui/buttons/',
+                'operatorsPath': './img/gui/operators/',
+                'plusName': 'plus.png',
+                'restaName': 'resta.png',
+                'multiName': 'multiplicacion.png',
+                'diviName': 'division.png',
+                'barraName':'barra.png',
+                'dificulty': EASY,
+                'music': true,
+                'audio': {'success': 'mathquizz/sfx/success.wav',
+                          'fail': 'mathquizz/sfx/fail.wav',
+                          'button': 'mathquizz/sfx/button_sfx.wav'}
+                };

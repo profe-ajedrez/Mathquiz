@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MathQuiz</title>
+
+    <link rel="stylesheet" href="css/estilo.css" />
+
+</head>
+<body class="azulmedianoche">
+
+    <div class="container">
+        <div class="row">
+            <div class="toolbar">
+                <div class="row margin-top-10">
+                    <div class="left">
+                        <p id="animated-holder" class="boogaloo"><span id="animated">MATH QUIZZ</span></p>
+                    </div>
+                    <div class="right commands mr-8px">
+                        <a href="file:///android_asset/mathquizz/logout">
+                            <img id='settings'   src="./img/gui/buttons/logout.svg" />
+                        </a>
+
+
+                    </div>
+                    <div class="right mr-8px">
+                        <a href="file:///android_asset/mathquizz/settings">
+                            <img id='profile'   src="./img/gui/buttons/settings.svg" />
+                        </a>
+                    </div>
+                    <div class="right mr-8px">
+                        <a href="file:///android_asset/mathquizz/profile">
+                            <img id='logout'   src="./img/gui/buttons/profile.svg" />
+                        </a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="col m12 colm margin-top-10">
+                <div class="pizarra">
+                    <div id="score" style="color: #fff;margin-left: 60%;padding-top: 0.8rem;font-family: bangers;width: 76px;text-align: right;">0</div>
+                    <div class="contenido padding-top-50 center">
+                        <div id="numero-1">
+
+                        </div>
+                        <div id="operador" class="padding-top-bottom-10">
+                        </div>
+                        <div id="numero-2">
+
+                        </div>
+                        <div id="barrita" class="padding-top-bottom-5">
+
+                        </div>
+                        <div id="resultado">
+
+                        </div>
+                        <div id="control-up">
+                            <img class="rotate-180" src="./img/gui/buttons/button-down-idle.svg" />
+                            <img class="rotate-180" src="./img/gui/buttons/button-down-idle.svg" />
+                            <img class="rotate-180" src="./img/gui/buttons/button-down-idle.svg" />
+                        </div>
+                        <div id="control-down">
+                            <img class="" src="./img/gui/buttons/button-down-idle.svg" />
+                            <img class="" src="./img/gui/buttons/button-down-idle.svg" />
+                            <img class="" src="./img/gui/buttons/button-down-idle.svg" />
+                        </div>
+                        <div id="check-me">
+                            <img id="check" class="bloque center" src="./img/gui/buttons/button-check-me-idle.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+
+    <script src="./lib/vendor/jquery.js"></script>
+    <script src="./lib/app/common_constants.js"></script>
+    <script src="./lib/app/settings.js"></script>
+    <script src="./lib/app/utils.js"></script>
+    <script src="./lib/app/application.js"></script>
+    <script>
+        "use strict";
+
+        // IIFE - Immediately Invoked Function Expression
+        (function($, window, document) {
+
+            // The $ is now locally scoped
+            // Listen for the jQuery ready event on the document
+            $(function() {
+            // The DOM is ready!
+
+
+               $(".slide-custom").css({
+                  'background':'none',
+                  'border':'none',
+                  'box-shadow':'none'
+               });
+
+               let top = 10;
+               let dif = SettingsManager.getDificultad();
+               switch( dif ){
+
+                   case EASY:
+                             top = 20;
+                             break;
+                   case MEDIUM:
+                             top = 100;
+                             break;
+                   case HARD:
+                             top = 200;
+                             break;
+                   case MASTER:
+                             top = 300;
+                             break;
+                   case NERD:
+                             top = 500;
+                             break;
+                   case MASOQUIST:
+                             top = 998;
+               }
+
+               let app = new Game({'settings': settings, 'limits': {'bottom': 1, 'top': top}});
+
+               app.initialize();
+
+               app.render();
+            });
+
+            // The rest of the code goes here!
+
+        }(window.jQuery, window, document));
+        // The global jQuery object is passed as a parameter
+
+    </script>
+
+</body>
+</html>

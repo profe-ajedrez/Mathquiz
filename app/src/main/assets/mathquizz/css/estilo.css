@@ -1,0 +1,446 @@
+
+
+
+a,
+hr {
+	padding: 0
+}
+
+.bloque,
+.no-btn,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+hr,
+menu,
+nav,
+section {
+	display: block
+}
+
+abbr,
+address,
+article,
+aside,
+audio,
+b,
+blockquote,
+body,
+canvas,
+caption,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+p,
+pre,
+q,
+samp,
+section,
+small,
+span,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+ul,
+var,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: 0 0
+}
+
+ins,
+mark {
+	background-color: #ff9;
+	color: #000
+}
+
+body {
+	line-height: 1
+}
+
+nav ul {
+	list-style: none
+}
+
+blockquote,
+q {
+	quotes: none
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+	content: '';
+	content: none
+}
+
+a {
+	margin: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: 0 0
+}
+
+ins {
+	text-decoration: none
+}
+
+mark {
+	font-style: italic;
+	font-weight: 700
+}
+
+del {
+	text-decoration: line-through
+}
+
+abbr[title],
+dfn[title] {
+	border-bottom: 1px dotted;
+	cursor: help
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+hr {
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0
+}
+
+input,
+select {
+	vertical-align: middle
+}
+
+.right {
+	float: right
+}
+
+.left {
+	float: left
+}
+
+.clear {
+	clear: both
+}
+
+.pizarra {
+	background-color: transparent;
+	background-image: url(../img/gui/pizarra-vertical-con-score.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top center;
+	min-height: 100vh
+}
+
+.contenido {
+	width: 120px
+}
+
+.boogaloo {
+	font-family: Bangers, cursive;
+	font-size: 2rem
+}
+
+p#animated-holder span {
+	letter-spacing: 0;
+	display: block;
+	text-shadow: 0 0 20px rgba(255, 255, 255, .75);
+	background: url(../img/tira.png) repeat-y;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: aitf 25s linear;
+	-webkit-transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden
+}
+
+@-webkit-keyframes aitf {
+	0% {
+		background-position: 0 50%
+	}
+	100% {
+		background-position: 100% 50%
+	}
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto
+}
+
+.margin-top-10 {
+	margin-top: 10px
+}
+
+.mr-8px{ margin-right:8px; }
+
+.padding-top-50 {
+	padding-top: 35px
+}
+
+.padding-top-bottom-10 {
+	padding-top: 10px;
+	padding-bottom: 10px
+}
+
+.padding-top-bottom-5 {
+	padding-top: 5px;
+	padding-bottom: 5px
+}
+
+.no-btn {
+	border: none;
+	background-color: transparent;
+	background-image: url(../img/gui/buttons/button-check-me-idle.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 47px
+}
+
+.rotate-180 {
+	transform: rotate(180deg)
+}
+
+.turquesa {
+	background-color: #1abc9c
+}
+
+.verdemarino {
+	background-color: #16a085
+}
+
+.esmeralda {
+	background-color: #2ecc71
+}
+
+.nephritis {
+	background-color: #27ae60
+}
+
+.river {
+	background-color: #3498db
+}
+
+.belice {
+	background-color: #2980b9
+}
+
+.amatista {
+	background-color: #9b59b6
+}
+
+.histeriapurpura {
+	background-color: #8e44ad
+}
+
+.asfaltomojado {
+	background-color: #34495e
+}
+
+.azulmedianoche {
+	background-color: #2c3e50
+}
+
+.maravilla {
+	background-color: #f1c40f
+}
+
+.naranja {
+	background-color: #f39c12
+}
+
+.zanahoria {
+	background-color: #e67e22
+}
+
+.calabaza {
+	background-color: #d35400
+}
+
+.alizarin {
+	background-color: #e74c3c
+}
+
+.pomegranada {
+	background-color: #c0392b
+}
+
+.nubes {
+	background-color: #ecf0f1
+}
+
+.plata {
+	background-color: #bdc3c7
+}
+
+.concreto {
+	background-color: #95a5a6
+}
+
+.asbesto {
+	background-color: #7f8c8d
+}
+
+.turquesa-text {
+	color: #1abc9c
+}
+
+.verdemarino-text {
+	color: #16a085
+}
+
+.esmeralda-text {
+	color: #2ecc71
+}
+
+.nephritis-text {
+	color: #27ae60
+}
+
+.river-text {
+	color: #3498db
+}
+
+.belice-text {
+	color: #2980b9
+}
+
+.amatista-text {
+	color: #9b59b6
+}
+
+.histeriapurpura-text {
+	color: #8e44ad
+}
+
+.asfaltomojado-text {
+	color: #34495e
+}
+
+.azulmedianoche-text {
+	color: #2c3e50
+}
+
+.maravilla-text {
+	color: #f1c40f
+}
+
+.naranja-text {
+	color: #f39c12
+}
+
+.zanahoria-text {
+	color: #e67e22
+}
+
+.calabaza-text {
+	color: #d35400
+}
+
+.alizarin-text {
+	color: #e74c3c
+}
+
+.pomegranada-text {
+	color: #c0392b
+}
+
+.nubes-text {
+	color: #ecf0f1
+}
+
+.plata-text {
+	color: #bdc3c7
+}
+
+.concreto-text {
+	color: #95a5a6
+}
+
+.asbesto-text {
+	color: #7f8c8d
+}
+
+.white-text {
+	color: #fff
+}
+
+.toolbar {
+	height: 32px;
+}
+
+.commands {
+	height: 24px;
+}
+
+
+
+    @font-face {
+          font-family: 'Bangers';
+          src: url('../fonts/Bangers-Regular.woff2') format('woff2'),
+          url('../fonts/Bangers-Regular.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+        }
+
