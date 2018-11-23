@@ -2,9 +2,8 @@ package org.mathquiz;
 
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -12,13 +11,12 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.config.Config;
-import org.database.ConfigDB_Adapter;
-import org.database.DatabaseHelper;
+import org.database.FireStore_Adapter;
 
 
 public class SettingsActivity extends AppCompatActivity {
@@ -38,7 +36,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         mAuth = FirebaseAuth.getInstance();
-        cfg = ConfigDB_Adapter.loadConfig( new DatabaseHelper(getApplicationContext()), mAuth );
+        cfg = FireStore_Adapter.loadConfig(FirebaseFirestore.getInstance(), mAuth);
         bindUiControls();
         bindListener();
     }
@@ -122,11 +120,11 @@ public class SettingsActivity extends AppCompatActivity {
                         cfg.setOperacionActiva( Config.OP_SUMA );
                 }
 
-                cfg.setDificultad( difi.getProgress() );
-                DatabaseHelper db = new DatabaseHelper(SettingsActivity.this );
+                cfg.setDificultad(difi.getProgress());
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-                cfg.setUserToken( mAuth.getCurrentUser().getEmail() );
-                db.update( cfg );
+                cfg.setUserToken(mAuth.getCurrentUser().getEmail());
+                FireStore_Adapter.writeConfig(db, cfg);
 
                 Intent i = new Intent(getApplicationContext(), WebView_MathQuiz_Activity.class);
                 startActivity(i);

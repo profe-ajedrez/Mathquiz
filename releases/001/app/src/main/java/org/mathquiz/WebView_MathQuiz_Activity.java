@@ -3,30 +3,33 @@ package org.mathquiz;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.bindings.AudioInterface;
 import org.bindings.SettingsInterface;
 import org.config.Config;
-import org.database.ConfigDB_Adapter;
-import org.database.DatabaseHelper;
+import org.database.FireStore_Adapter;
 
 public class WebView_MathQuiz_Activity extends AppCompatActivity {
 
     private static final String BASE_URL = "file:///android_asset/mathquizz/";
+    private static final int MAX_SELF_INSTANCES = 1;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListner;
     private Config cfg;
     private WebView wView;
+    private static int selfInstance = 0;
 
     @Override
     protected void onStart() {
@@ -42,7 +45,10 @@ public class WebView_MathQuiz_Activity extends AppCompatActivity {
 
         checkIfLoged();
 
-        cfg = ConfigDB_Adapter.loadConfig( new DatabaseHelper(this), mAuth );
+
+        cfg = FireStore_Adapter.loadConfig(FirebaseFirestore.getInstance(), mAuth);
+        // cfg = FireStore_Adapter.loadConfig(FirebaseFirestore.getInstance(), mAuth );
+        gettingData();
 
         prepareWebView();
         bindJavascriptInterfaces();
@@ -50,7 +56,13 @@ public class WebView_MathQuiz_Activity extends AppCompatActivity {
         overrideUrls();
 
         //Cargar html5 App
-        wView.loadUrl( BASE_URL + "index.html" );
+        wView.loadUrl(BASE_URL + "index.html");
+
+    }
+
+    private void gettingData() {
+
+        cfg = FireStore_Adapter.retrieve(FirebaseFirestore.getInstance(), mAuth);
     }
 
 
@@ -62,6 +74,7 @@ public class WebView_MathQuiz_Activity extends AppCompatActivity {
                 if (firebaseAuth.getCurrentUser()==null)
                 {
                     startActivity(new Intent(WebView_MathQuiz_Activity.this, SigInActivity.class));
+                    finish();
                 }
             }
         };
