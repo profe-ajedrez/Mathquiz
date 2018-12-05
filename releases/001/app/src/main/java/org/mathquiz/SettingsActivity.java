@@ -16,6 +16,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.config.Config;
+import org.database.ConfigDB_Adapter;
+import org.database.DatabaseHelper;
 import org.database.FireStore_Adapter;
 
 
@@ -125,6 +127,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                 cfg.setUserToken(mAuth.getCurrentUser().getEmail());
                 FireStore_Adapter.writeConfig(db, cfg);
+                ConfigDB_Adapter.writeConfig(new DatabaseHelper(getApplicationContext()), cfg);
 
                 Intent i = new Intent(getApplicationContext(), WebView_MathQuiz_Activity.class);
                 startActivity(i);

@@ -2,9 +2,13 @@ package org.bindings;
 
 import android.content.Context;
 import android.webkit.JavascriptInterface;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import org.config.Config;
 import org.database.ConfigDB_Adapter;
 import org.database.DatabaseHelper;
+import org.database.FireStore_Adapter;
 
 public class SettingsInterface {
 
@@ -12,7 +16,8 @@ public class SettingsInterface {
     private static Context context;
 
     public SettingsInterface(Config settings, Context c) {
-        this.settings = settings;context = c;
+        SettingsInterface.settings = settings;
+        context = c;
     }
 
 
@@ -44,7 +49,7 @@ public class SettingsInterface {
 
     @JavascriptInterface
     public void setPuntosSuma(int puntosSuma) {
-        this.settings.setPuntosSuma(puntosSuma);
+        settings.setPuntosSuma(puntosSuma);
     }
 
     @JavascriptInterface
@@ -130,6 +135,7 @@ public class SettingsInterface {
     @JavascriptInterface
     public void writeConfig() {
 
+        FireStore_Adapter.writeConfig(FirebaseFirestore.getInstance(), settings);
         ConfigDB_Adapter.writeConfig(new DatabaseHelper(context), settings);
     }
 }

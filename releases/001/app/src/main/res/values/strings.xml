@@ -1,4 +1,8 @@
 <resources>
+
+    <string name="login_mail">Correo electrónico</string>
+    <string name="login_pass">Su clave</string>
+
     <string name="app_name">MathQuizz</string>
     <string name="str_login">Ingresar</string>
     <string name="email_id">email id</string>

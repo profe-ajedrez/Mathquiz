@@ -36,18 +36,10 @@ public class FireStore_Adapter {
         Log.d(TAG, mAuth.getCurrentUser().getEmail());
         DocumentReference docRef = db.collection(COLLECTION_NAME).document(mAuth.getCurrentUser().getEmail());
 
-        /*
-        if (docRef == null) {
-            FireStore_Adapter.mConfig = new Config();
-            FireStore_Adapter.mConfig.setUserToken(mAuth.getCurrentUser().getEmail());
-            FireStore_Adapter.writeConfig(db, FireStore_Adapter.mConfig);
-        } */
-
-
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                //public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
                 if (task.isSuccessful()) {
                     //Documento se encuentra
@@ -116,8 +108,8 @@ public class FireStore_Adapter {
                                         public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
 
                                             if (e != null) {
-                                                FireStore_Adapter.mConfig = new Config();
-                                                FireStore_Adapter.mConfig.setUserToken(mAuth.getCurrentUser().getEmail());
+                                                // FireStore_Adapter.mConfig = new Config();
+                                                // FireStore_Adapter.mConfig.setUserToken(mAuth.getCurrentUser().getEmail());
                                                 Log.d("ERROR al cargar ", e.getMessage());
                                             } else {
 
